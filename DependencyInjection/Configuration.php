@@ -13,8 +13,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sendinblue_api');
+        $treeBuilder = new TreeBuilder('sendinblue_api');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->beforeNormalization()
@@ -59,8 +59,8 @@ class Configuration implements ConfigurationInterface
      */
     private function getClientsNode()
     {
-        $treeBuilder = new TreeBuilder();
-        $node = $treeBuilder->root('clients');
+        $treeBuilder = new TreeBuilder('clients');
+        $node = $treeBuilder->getRootNode();
 
         $node
             ->requiresAtLeastOneElement()
